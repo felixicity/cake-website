@@ -8,6 +8,3 @@ data = [
         "img":"./images/api-cake.jpg"
       }
 ]
-
-
-data.forEach(dt => console.log(dt))

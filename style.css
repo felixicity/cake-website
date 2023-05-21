@@ -92,7 +92,7 @@ video {
          top:0;bottom:0;
          left:30%;
          right:0;
-         background:#012;
+         background-color:#012;
     }
 
     & li{
@@ -103,7 +103,7 @@ video {
             padding:1rem 1.5rem;
             
             &:hover , &:active {
-                background:#ccc;
+                background-color: rgba(0, 17, 34, 0.9);
             }
         }
         
@@ -115,7 +115,7 @@ video {
             &:hover::before {
                 position: absolute;
                 content: "";
-                border-bottom:2px solid grey;
+                border-bottom:2px solid orange;
                 bottom: -3px;
                 animation: filler 500ms linear;
             }
@@ -157,13 +157,13 @@ header .logo {
     position: relative;
     top:0;left: 0;
    
-    /* & .hero-details {
-    } */
 
     & .msg {
         position: absolute;
         color: orange;
-        top:35%;
+        top:25%;
+        transform-origin: top;
+        animation: slidein .5s ease-in forwards;
     }
     
     & img {
@@ -178,9 +178,9 @@ header .logo {
     }
 
     & h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
         @media(min-width:1040px) {
-            font-size:2.5rem;
+            font-size:3rem;
         }
      }
 
@@ -189,17 +189,13 @@ header .logo {
     }
 
     & a{
+        background: linear-gradient(to right bottom,rgb(241, 166, 26),hotpink, rgb(226, 64, 64));
+        color: #fff;
         padding: 1rem 3.5rem;
-        background: linear-gradient(to bottom right,rgb(241, 166, 26),rgb(248, 34, 141), rgb(226, 64, 64));
-        color:#fff;
+        border-radius: 25px;
         text-decoration: none;
         margin-top: 5rem;
-        border-radius: 25px;
     }
-   
-    /* & a:hover {
-        background
-    } */
 }
 
 .services-section {
@@ -294,9 +290,48 @@ header .logo {
     }
 
     & .title{
+        margin: 4rem 0 1rem 0;
        font-weight: bold;
        color: #012;
     }
+
+    & .products-list {
+         margin: 3rem 0;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 1rem;
+
+        @media(min-width:700px) {
+            grid-template-columns:repeat(3, 1fr);
+            row-gap:2rem;
+        }
+
+        & .product {
+            font-size: .9rem;
+
+            & .product-title {
+                font-weight: bold;
+                color: #012;
+            }
+
+            & .product-desc {
+                color: #8d8787;
+            }
+
+            & .product-price {
+                color: #fff;
+                background:rgb(241, 166, 26);
+                padding: .3rem .5rem;
+                width:2rem;
+                border-radius: 15px;
+            }
+
+            & img {
+                border-radius: 5px;
+            }
+        }
+    }
+
 }
 
 section.cta{
@@ -427,5 +462,14 @@ footer {
 
     100% {
         transform:translateY(0%)
+    }
+}
+
+@keyframes slidein {
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
     }
 }
